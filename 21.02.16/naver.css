@@ -1,0 +1,182 @@
+
+* { /* * <- 에스터리스크 라고 부르는데 모든 태그에 적용이라는 기능을 가짐*/
+    box-sizing: border-box; /* 모든 태그에 border-box 적용 */
+}
+
+
+/* 선택자 (selector) */
+.fixed{
+    position: fixed; /* position 속성이 fixed인 경우 컨테이닝 블록은 뷰포트(화면이라고 생각하세요.)나 페이지 영역 */
+                    /* fixed 위치를 개발자 도구로 옮겨 볼 수 있는데 어디에나 나둬도 변하지 않음 because 부모가 아니라 body이기 때문에*/
+    bottom: 50px;
+    right: 50px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+
+    border:  1px solid black; /* solid 둥그러짐 */
+    border-radius: 50px;
+
+}
+/* width 나 height 를 %로 두는 경우 부모가 아닐 수도 있다.  */
+
+.blind { /* .은 클래스 */
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+
+.center-align{ /* 여기서 div는 생략가능! ex) #header-center
+                       단 div만 가능하다. header#mins -> #mins(x) */
+                    /* 이런 css가 여러번 사용된다면 .을 이용하여 클래스로 바꾸어 사용한다. ex).center-align(이름은 알아서 지어)*/
+    margin: 0 auto;
+    width: 1130px;
+}
+/*
+    만약 같은 내용의 css 디자인이 들어간다면!
+    div#header-center , div#mins{ ,를 찍고 옆에 적어주면 된다.
+    margin: 0 auto;
+    width: 1130px;
+    }
+*/
+
+#header-search a{
+    text-decoration: none;
+}
+
+#header-search h1 { /* div 내에서 자식(바로안에 들어있는것)을 찾고 싶다면 mins > h1 방식을 사용*/
+                        /* 자손 <- 그외 자식, 손자, 증손자 등등 */
+                        /* a 태그와 h1 태그 교체이후 설명
+                           header-search 바로 직졔 자식은 h1 태그였으나 a태그가 이를 감싸면서 h1태그는
+                           자식이 아닌 자손이 되었음! 따라서 ">" 표시을 제거해야함 (자손과 자식의 차이)*/
+    width: 205px;
+    height: 50px;
+    display: inline-block; /* 오른쪽의 margin을 없앰 */
+    text-indent: 110%;
+    overflow: hidden; /* 밖으로 나간 친구들 안보이게 ㅋㅋ 꼼수 */
+    vertical-align: middle;
+   /* background-image: url(./sp_search.png);
+    background-position: -4px -10px;
+    background-repeat: no-repeat;*/ /* <- 반복되는것을 막기위함 div보다 넓으면 이미지가 반복되는 것을 막기 위함*/
+    /* 한방에 줄이는법 */
+    background: url(./sp_search.png) -5px -4px no-repeat;
+}
+
+
+#header-search h2 { /* 눈에 보이지 않는것에 처리 */
+    display: none;
+}
+
+#header-search fieldset {
+    margin-left: 20px;
+    /*padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 0px;
+    padding-left: 110px;   한줄요약 가능
+    */
+    padding: 12px 0 12px 10px;
+    /* 위 오른쪽 아래 왼쪽*/
+    width: 586px;
+    height: 56px;
+    display: inline-block;
+    border: 2px solid #19ce60; /* hex 표기법 (RGB) */
+    /*box-sizing: border-box; */
+    /* 마진, 보더, 패팅 들을 모두 합쳐서 너비로 맞추어 달라
+            content-box -> border-box */
+    vertical-align: middle;
+    /*
+       로고와 검색바 배치 이후에 서로의 height가 다르면 정렬면에서 문제가 발생함
+       따라서 vertical-align을 사용하여 정렬을 맞춤
+    */
+    position:  relative; /* relative <- 내 위치에서 위치조정*/
+}
+
+#header-search fieldset input {
+    border: none;
+    padding: 0;
+    outline: none; /* css는 외우는 것 */
+    vertical-align: top;
+    width: 405px;
+    height: 28px;
+}
+
+/* ↓ 검색창 안에 버튼 넣기 */
+
+#header-search fieldset button {
+    width: 56px;
+    height: 56px;
+    border: none;
+    padding: 0;
+    background: #19ce60;
+    position: absolute; /* 화면에 기반하여 위치한다. */
+                        /* 컨테이닝 블록을 찾기 위에서 위로 계속 거슬러 올라가 HTML까지 올라간다.
+                            SO. HTML이 기본 컨테이닝 블록이 된다. / EX) stactic... -> html */
+    right: -2px;
+    top: -2px;
+}
+
+/*#header-search fieldset button .search-image*/
+/* 너무 길어지면 id로 변경 */
+#search-image {
+    background-image: url(./sp_search.png);
+    background-position: -3px -58px;
+    background-repeat: no-repeat;
+    width: 22px;
+    height: 22px;
+    display: inline-block; /* inline 이면 가로세로 조절이 힘들다.*/
+}
+
+nav ul {
+    margin: 0;
+    padding: 0; /* 화면에서 보면 알겠지만 옆으로 마진과 패딩을 쓰고 있기에 이를 없애줌 */
+    list-style: none; /* 옆에 리스트 쩜을 없애줌 */
+}
+
+nav li{
+    display: inline-block;
+}
+
+nav li:first-child span:first-child { /* 첫번째 자식에 다시 첫번째 자식을 선택 */
+    width: 25px;
+    background-position: 0 -285px;
+    margin-left: 0; /* 케스케이딩( 덮어 씌우는 것 ) ex. 0으로 고정을 하였으나 뒤에서 14로 덮어 씌울 수 있다.*/
+}
+
+nav li span:first-child {
+    height: 16px;
+    display: inline-block;
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
+    background-repeat: no-repeat;
+    margin-left: 14px;
+    /* css 우선순위 -> 뒤에 있는 css가 더 우선순위가 높다.*/
+    /* !important > inline style attribute > id > 다른 attribute > tag element 순으로 우선순위가 높다.*/
+}
+
+nav li:nth-child(2) span:first-child {
+    width: 27px;
+    background-position: -279px -52px;
+}
+
+nav li:nth-child(3) span:first-child {
+    width: 40px;
+    background-position: -100px -182px;
+}
+
+nav li:nth-child(4) span:first-child {
+    width: 40px;
+    background-position: -101px -156px;
+}
+
+nav li:nth-child(5) span:first-child {
+    width: 26px;
+    background-position: -279px -156px;
+}
+
+nav li:nth-child(6) span:first-child {
+    width: 25px;
+    background-position: -70px -285px;
+}
