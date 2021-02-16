@@ -1,0 +1,52 @@
+body {
+    background: beige;
+
+}
+
+html, body{
+    margin: 0;
+    padding: 0; /* 처음 브라우저를 주면 자동으로 패딩과 마진 값이 나오는데 이를 0으로 설정하고 코딩을 진행하자 */
+}
+
+section {
+    display: block;
+    width: 400px;
+    height: 160px;
+    background: lightgray;
+}
+
+p {
+    width: 50%;   /* == 400px * .5 = 200px */
+    height: 25%;  /* == 160px * .25 = 40px */
+    margin: 5%;   /* == 400px * .05 = 20px */
+    padding: 5%;  /* == 400px * .05 = 20px */
+    background: cyan;
+}
+
+/* 항상 부모가 아닐 수 있다. body안에 section안에 p가 들어있는데 이 p의 컨테이닝 블록은 section 일까요?
+    정답 : ㅇㅇ 왜냐하면 이 p는 position이 static이기 때문에 */
+
+/* SO -> width 50%를 할경우 section 400px의 50%가 되서 200px이 된다.*/
+
+body {
+    background: beige;
+}
+
+section {
+    display: inline;
+    background: lightgray;
+}
+
+p {
+    width: 50%;     /* == body 너비의 절반 */
+    height: 200px;  /* 참고: 백분율 값이었으면 0 */
+    background: cyan;
+}
+
+/* 똑같은 경우 그렇다면 이번에도 p의 컨테이닝 블록은 section 일까요?
+    정답 : x 왜냐하면 section 의 display 가 inline 이기 때문에 (display가 inline인 경우 컨테이닝 블럭이 될 수 없기 때문) */
+
+/* So -> 이 p의 컨테이닝 블록은 section를 건너뛰고 body까지 올라가서 body의 절반이 된다.*/
+
+
+/* 팁 : 문서를 옆에 두고 공부하되 2번을 보고 공부하다가 4번때문에 혼란이 올 수도 있으니 꼭 꼼꼼히 읽어볼 것*/

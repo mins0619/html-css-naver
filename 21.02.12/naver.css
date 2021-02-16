@@ -5,20 +5,6 @@
 
 
 /* 선택자 (selector) */
-.fixed{
-    position: fixed; /* position 속성이 fixed인 경우 컨테이닝 블록은 뷰포트(화면이라고 생각하세요.)나 페이지 영역 */
-                    /* fixed 위치를 개발자 도구로 옮겨 볼 수 있는데 어디에나 나둬도 변하지 않음 because 부모가 아니라 body이기 때문에*/
-    bottom: 50px;
-    right: 50px;
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-
-    border:  1px solid black; /* solid 둥그러짐 */
-    border-radius: 50px;
-
-}
-/* width 나 height 를 %로 두는 경우 부모가 아닐 수도 있다.  */
 
 .blind { /* .은 클래스 */
     position: absolute;
@@ -30,9 +16,8 @@
 }
 
 
-.center-align{ /* 여기서 div는 생략가능! ex) #header-center
+div#header-center{ /* 여기서 div는 생략가능! ex) #header-center
                        단 div만 가능하다. header#mins -> #mins(x) */
-                    /* 이런 css가 여러번 사용된다면 .을 이용하여 클래스로 바꾸어 사용한다. ex).center-align(이름은 알아서 지어)*/
     margin: 0 auto;
     width: 1130px;
 }
@@ -130,53 +115,3 @@
     display: inline-block; /* inline 이면 가로세로 조절이 힘들다.*/
 }
 
-nav ul {
-    margin: 0;
-    padding: 0; /* 화면에서 보면 알겠지만 옆으로 마진과 패딩을 쓰고 있기에 이를 없애줌 */
-    list-style: none; /* 옆에 리스트 쩜을 없애줌 */
-}
-
-nav li{
-    display: inline-block;
-}
-
-nav li:first-child span:first-child { /* 첫번째 자식에 다시 첫번째 자식을 선택 */
-    width: 25px;
-    background-position: 0 -285px;
-    margin-left: 0; /* 케스케이딩( 덮어 씌우는 것 ) ex. 0으로 고정을 하였으나 뒤에서 14로 덮어 씌울 수 있다.*/
-}
-
-nav li span:first-child {
-    height: 16px;
-    display: inline-block;
-    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
-    background-repeat: no-repeat;
-    margin-left: 14px;
-    /* css 우선순위 -> 뒤에 있는 css가 더 우선순위가 높다.*/
-    /* !important > inline style attribute > id > 다른 attribute > tag element 순으로 우선순위가 높다.*/
-}
-
-nav li:nth-child(2) span:first-child {
-    width: 27px;
-    background-position: -279px -52px;
-}
-
-nav li:nth-child(3) span:first-child {
-    width: 40px;
-    background-position: -100px -182px;
-}
-
-nav li:nth-child(4) span:first-child {
-    width: 40px;
-    background-position: -101px -156px;
-}
-
-nav li:nth-child(5) span:first-child {
-    width: 26px;
-    background-position: -279px -156px;
-}
-
-nav li:nth-child(6) span:first-child {
-    width: 25px;
-    background-position: -70px -285px;
-}
