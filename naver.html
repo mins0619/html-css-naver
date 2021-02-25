@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="./naver.css">
     </head>
     <body>
+
+        </div>
         <header>
             <!-- 원래는 div(divison)태그를 사용하였으나 너무 div 태그가 많아
              개발자로 하여금 햇갈림을 유도하여 "div id = header" 이라는 방법을 사용하였지만
@@ -54,6 +56,9 @@
             </div>
         </header>
         <nav> <!-- 네비게이션 기능을 보여주는 곳에 보통 nav를 사용한다. -->
+            <!--/* nav는 전부 inline-block 그리고 모든 블록이 높이가 같은경우 짜라락 붙고 알아서 다음줄로 넘어간다 */-->
+            <!-- 그냥 잘 나눠주자 / 그렇다면, 언제 가로로 쫘라락이 가능할까? <- 뉴스 목록을 보면 그렇다. so 가로 세로법칙 쓰지 않고 쭉 배치한다 inline블록으로 -->
+
             <div class="center-align relative"> <!-- 가운데 정렬용 div -->
                 <div id="search-ranking">
                     <h2 class="blind">실시간 검색어</h2>
@@ -83,32 +88,69 @@
             </div>
         </nav>
         <main> <!-- main 은 말그대로 main 이기 때문에 쓴다. -->
-            <h2>실시간 검색어</h2>
-            <ol>
-                <li>린가드 맨유이적</li>
-                <li>축신린가드</li>
-                <li>이것이 옳은 세상이다.</li>
-                <li>맹구 맨유로</li>
-                <li>솔샤르 종신해... 3년 재계약</li>
-                <li>린가드 결승골</li>
-                <li>맨유챔스</li>
-                <li>맨유 vs 바르셀로나</li>
-                <li>린가드 헤트트릭</li>
-                <li>제라드 훔바훔바</li>
-            </ol>
-            <h3>언론사 목록</h3>
-            <ul>
-                <li><img src="./002.png" alt="프레시안"></li>
-                <li><img src="./003.png" alt="뉴시스"></li>
-                <li><img src="./005.png" alt="국민일보"></li>
-                <li><img src="./006.png" alt="미디어오늘"></li>
-                <li><img src="./018.png" alt="이데일리"></li>
-            </ul>
-            <h3>로그인</h3>
-            <h3>뉴스</h3>
-            <h3>법률</h3>
-            <h3>쇼핑</h3>
-            <h6>쇼핑</h6>
+            <div id="main-center" class="center-align">
+            <div id="main-first-block">
+                <div id="main-ad"></div>
+                <div id="main-login"> <!-- 엔터를 치면 그 화면 만큼 반영됨 ㅋㅋㅋㅋㅋ inline 블럭에서 왜 이따위-->
+                    <h3>로그인</h3> <!-- 꼼수하나 더있음 부모에 fontsize 0을 주면 붙음
+                                        그리곤 자식한테 폰트 사이즈를 돌려주면 해결됨 -->
+                                    <!-- 근데 그냥 float 써라 -> 부모가 float 인식을 못함 -> 인식하도록 바꿔줌 overflow: auto 적용
+                                        or display inline-block, width 100% 써라 -->
+                </div>
+            </div>
+                <div id="main-second-block"> <!-- 6-4 5분-->
+                    <div class="inline-block">
+                        <div id="main-ytn">
+                            <h3>연합뉴스</h3>
+                            <ol>
+                                <li>충격) 제로초 지금 목아파...</li>
+                            </ol>
+                        </div>
+                        <div id="main-newsstand">
+                            <h3>뉴스스탠드</h3>
+                            <ul>
+                                <li><img src="./과학동아.png" alt="과학동아" /></li>
+                                <li><img src="./한국일보.png" alt="한국일보" /></li>
+                                <li><img src="./osen.png" alt="osen" /></li>
+                                <li><img src="./매일경제.png" alt="매일경제" /></li>
+                                <li><img src="./파이낸셜뉴스.png" alt="파이낸셜뉴스" /></li>
+                                <li><img src="./한국경제TV.png" alt="한국경제TV" /></li>
+                                <li><img src="./과학동아.png" alt="과학동아" /></li>
+                                <li><img src="./한국일보.png" alt="한국일보" /></li>
+                                <li><img src="./osen.png" alt="osen" /></li>
+                                <li><img src="./매일경제.png" alt="매일경제" /></li>
+                                <li><img src="./파이낸셜뉴스.png" alt="파이낸셜뉴스" /></li>
+                                <li><img src="./한국경제TV.png" alt="한국경제TV" /></li>
+                                <li><img src="./과학동아.png" alt="과학동아" /></li>
+                                <li><img src="./한국일보.png" alt="한국일보" /></li>
+                                <li><img src="./osen.png" alt="osen" /></li>
+                                <li><img src="./매일경제.png" alt="매일경제" /></li>
+                                <li><img src="./파이낸셜뉴스.png" alt="파이낸셜뉴스" /></li>
+                                <li><img src="./한국경제TV.png" alt="한국경제TV" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <div id="main-weather"></div>
+                        <div id="main-second-ad"></div>
+                    </div>
+                </div>
+        <div id="main-third-block">
+            <div id="main-category">
+                <h3>주제별 보기</h3>
+            </div>
+            <div id="main-shopping">
+                <h3>쇼핑</h3>
+            </div>
+        </div>
+        <div id="main-fourth-block">
+            <div id="main-event">
+                <h3>이벤트</h3>
+            </div>
+            <div id="main-third-ad"></div>
+        </div>
+            </div>
+        </div>
         </main>
         <footer> <!-- 공지사항, 회사소개 등을 footer를 사용한다. -->
             <div>공지사항</div>

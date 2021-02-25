@@ -7,6 +7,14 @@ html, body {
     padding: 0;
     font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
 }
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0; /* 모든 글씨 크기들의 마진을 죽여버린다. */
+}
+
+.inline-block{
+    display: inline-block;
+}
 /* 앞에서 부터 순서 *if 돋움이 있으면 돋움
      없다면 helvetica -> .. 등등/
 /* 선택자 (selector) */
@@ -323,4 +331,173 @@ nav li.more:first-child span:first-child {
 }
 main {
     background-color: #f2f4f7;
+    display: inline-block; /* 마진상쇄 해결법*/
+    width: 100%;
+}
+
+/* 8px이 이 사이 너빈거 같은데 이 8px를 어디에 줘야 할까? 누구의 픽셀로 줘야 적용일까..
+   -> 규칙을 하나 정할것! 나는 오른쪽 마진으로 하겠다 등등 */
+/* 저는 오른쪽과 아랫쪽에 8px줄 예정입니다.*/
+
+#main-center{
+    padding: 8px 10px; /* 원래는 패딩 8px 10px 0 이었는데 수정됨 */
+    /* 이런 식으로 패딩을 주게 되었을때 첫 라인의 길이가
+    초과하면 끝에 있었던 것이 아랫줄로 밀린다. 한마디로 사이즈가 넘친 것 */
+    width: 1100px; /* 그래서 너비를 직접 지정하여 해결해줌 */
+}
+
+#main-first-block{
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+#main-ad{
+    /*display: inline-block; float를 쓰면 인라인 블록 무필요*/
+    float: left;
+    width: 740px;
+    height: 120px;
+    background: #555;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+#main-login{
+   float: left;
+    width: 332px;
+    height: 120px;
+    vertical-align: top; /* 높이가 안맞을때 위로 끌어 올리는 법*/
+    background: white;
+    margin-bottom: 8px;
+
+}
+
+/* 두번째 구역*/
+
+#main-second-block .inline-block:first-child{
+    /* 가로로 자르다 못자르면 세로로 잘라야함 */
+    width: 740px;
+
+}
+
+#main-second-block .inline-block:last-child{
+    /* 가로로 자르다 못자르면 세로로 잘라야함 */
+    width: 332px;
+    vertical-align: top;
+
+}
+
+#main-ytn{
+    display: inline-block;
+    width: 740px;
+    height: 46px;
+    background: white;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+#main-ytn h3,
+#main-ytn ol { /* ,로 할때는 $main-ytn 빼지 말자, 안햇갈리는법 줄바꿈 ㄱㄱ*/
+    display: inline-block; /* 뉴스의 목록을 가로로 정리 */
+}
+
+#main-newsstand{
+    display: inline-block;
+    width: 740px;
+    height: 246px;
+    background: white;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+#main-newsstand h3 { /* newsstand 에서 h3가 높이 45를 가져감 */
+    height: 45px;
+    border-bottom: 1px solid #ebeef3;
+}
+
+#main-newsstand ul { /* 개발자 도구를 올려보고 마진 패팅 리스트 스타일이 보여서 지운다.*/
+    margin: 0;
+    padding: 0;
+    list-style: none; /* 옆에 점이 사라진다. */
+}
+
+#main-newsstand li {
+    float: left; /* 리스트들을 옆으로 정렬 */
+    width: 123px;
+    height: 67px;
+    /* 경계선은 살펴보면 바보도 오른쪽이랑 밑만 넣어주면 되는게 보인다.*/
+    border-right: 1px solid #ebeef3;
+    border-bottom: 1px solid #ebeef3;
+    text-align: center; /* 내부 컨텐츠가 가운데 정렬 자식이 -> 부모에ㅅ게 명령*/
+
+}
+
+
+/* 세로 가운데 정렬 */
+#main-newsstand li img {
+    position: relative;
+    top: 50%; /* 부모의 길이로 부터 50% */
+    transform: translateY(-50%); /* 얘를 안해주면 위치가 이상해진다. */
+    /* 부모는 가로 자식은 세로를 맡음 */
+}
+
+
+
+#main-weather {
+    display: inline-block;
+    width: 332px;
+    height: 120px;
+    margin-bottom: 8px;
+    background: white;
+}
+
+#main-second-ad {
+    display: inline-block;
+    width: 332px;
+    height: 150px;
+    background: #555;
+    margin-bottom: 8px;
+
+}
+
+/* 세번째 구역 */
+
+#main-category{
+    float: left; /* 믿으로 붙어버리는 등신같은 경우 해결할때 씁니다. 이거 해주고
+                     부모를 인식하게 해주기 위해서 display: inline-block, width 100% 해줘야함 ㅋㅋ*/
+    width: 740px;
+    height:  837px;
+    background: white;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+#main-shopping {
+    float: left;
+    width: 332px;
+    height: 837px;
+    background: white;
+    margin-bottom: 8px;
+}
+#main-third-block,
+#main-fourth-block {
+    display: inline-block;
+    width: 100%;
+}
+
+#main-event {
+    float: left;
+    width: 740px;
+    height: 130px;
+    background: white;
+    vertical-align: top;
+    margin-right: 8px;
+}
+
+#main-third-ad {
+    float: left;
+    width: 332px;
+    height: 130px;
+    background: #555;
 }
