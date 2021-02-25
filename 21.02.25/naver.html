@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <title>네이버(연습용)</title>
+        <!--./는 현제폴더를 의미한다.-->
+        <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+        <link rel="stylesheet" href="./naver.css">
+    </head>
+    <body>
+
+        </div>
+        <header>
+            <!-- 원래는 div(divison)태그를 사용하였으나 너무 div 태그가 많아
+             개발자로 하여금 햇갈림을 유도하여 "div id = header" 이라는 방법을 사용하였지만
+             HTML5 마크업 부터는 header, nav, main 등의 태그를 지원한다. -->
+
+
+            <div class="center-align"> <!-- 가운데정렬을 위한 div --> <!-- 구역은 무조건 div를 사용! -->
+                <!-- 속성명: 속성값; 속성명2: 속성값2; -->
+                <!-- 인라인 스타일 -->
+                <div id="header-top">
+                    <span>네이버를 시작페이지로 |</span> <!-- 단순히 문자열일 경우에는 display: inline-block 을 사용한다.-->
+                    <span>쥬니와네이버 |</span> <!-- 하지만 통상적으로는 span 태그를 활용한다. -->
+                    <span>해피빈</span> <!-- 그리고 span 태그를 사용할 경우 display는 inline으로 설정된다. -->
+                                        <!-- 다만 inline-block으로 설정할경우 width와 height를 지정할 수 있다.-->
+                </div>
+                <div id="header-search"> <!-- id -> 고유한 것-->
+
+                        <a href="https://www.naver.com">
+                            <h1><span>네이버</span></h1>
+                        </a>
+                        <!--
+                         <h1>  <-이럴경우 이미지 적용시에 제대로 네이버로 더이상 클릭이 되지않음
+                                so. h1태그와 a태그에 위치를 바꾸면 해결됨!
+                                but! css가 날라감 -> css 주석 참고
+                            <a href="https://www.naver.com">
+                                네이버
+                            </a>
+                          </h1>
+                        -->
+                        <!-- 주석(comment)입니다. -->
+                        <!-- 속성(attribute)입니다. -->
+                    <h2 class="blind">검색창</h2> <!-- class 원하는 곳 어디든 넣어도 상관없다. -->
+                    <fieldset>
+                        <legend class="blind">검색</legend>
+                        <input />
+                        <span id="search-keyboard"></span>
+                        <span id="search-history"></span>
+                        <button>
+                            <span class="blind">검색</span>
+                            <span id="search-image"></span>
+                        </button>
+                    </fieldset>
+                </div>
+            </div>
+        </header>
+        <nav> <!-- 네비게이션 기능을 보여주는 곳에 보통 nav를 사용한다. -->
+            <!--/* nav는 전부 inline-block 그리고 모든 블록이 높이가 같은경우 짜라락 붙고 알아서 다음줄로 넘어간다 */-->
+            <!-- 그냥 잘 나눠주자 / 그렇다면, 언제 가로로 쫘라락이 가능할까? <- 뉴스 목록을 보면 그렇다. so 가로 세로법칙 쓰지 않고 쭉 배치한다 inline블록으로 -->
+
+            <div class="center-align relative"> <!-- 가운데 정렬용 div -->
+                <div id="search-ranking">
+                    <h2 class="blind">실시간 검색어</h2>
+                    <span id="rank-number">1</span>
+                    <span>린가드</span>
+                </div>
+                <ul> <!-- unordered list-->
+                    <li><a href=""><span class=""></span><span class="blind">메일</span></a></li> <!-- 이미지용 span, 블라인드용 span--> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">카페</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">블로그</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">지식in</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">쇼핑</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">pay</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">TV</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">사전</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">뉴스</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">증권</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">부동산</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">지도</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">영화</span></a></li> <!-- list item -->
+                    <li><a href=""><span></span><span class="blind">윕툰</span></a></li> <!-- list item -->
+                </ul>
+                <div class="nav-divider"></div>
+                <ul>
+                    <li class="more"><a href=""><span></span><span class="blind">윕툰</span></a></li> <!-- list item -->
+                </ul>
+            </div>
+        </nav>
+        <main> <!-- main 은 말그대로 main 이기 때문에 쓴다. -->
+            <div id="main-center" class="center-align">
+            <div id="main-first-block">
+                <div id="main-ad"></div>
+                <div id="main-login"> <!-- 엔터를 치면 그 화면 만큼 반영됨 ㅋㅋㅋㅋㅋ inline 블럭에서 왜 이따위-->
+                    <h3>로그인</h3> <!-- 꼼수하나 더있음 부모에 fontsize 0을 주면 붙음
+                                        그리곤 자식한테 폰트 사이즈를 돌려주면 해결됨 -->
+                                    <!-- 근데 그냥 float 써라 -> 부모가 float 인식을 못함 -> 인식하도록 바꿔줌 overflow: auto 적용
+                                        or display inline-block, width 100% 써라 -->
+                </div>
+            </div>
+                <div id="main-second-block"> <!-- 6-4 5분-->
+                    <div class="inline-block">
+                        <div id="main-ytn">
+                            <h3>연합뉴스</h3>
+                            <ol>
+                                <li>충격) 제로초 지금 목아파...</li>
+                            </ol>
+                        </div>
+                        <div id="main-newsstand">
+                            <h3>뉴스스탠드</h3>
+                            <ul>
+                                <li><img src="./과학동아.png" alt="과학동아" /></li>
+                                <li><img src="./한국일보.png" alt="한국일보" /></li>
+                                <li><img src="./osen.png" alt="osen" /></li>
+                                <li><img src="./매일경제.png" alt="매일경제" /></li>
+                                <li><img src="./파이낸셜뉴스.png" alt="파이낸셜뉴스" /></li>
+                                <li><img src="./한국경제TV.png" alt="한국경제TV" /></li>
+                                <li><img src="./과학동아.png" alt="과학동아" /></li>
+                                <li><img src="./한국일보.png" alt="한국일보" /></li>
+                                <li><img src="./osen.png" alt="osen" /></li>
+                                <li><img src="./매일경제.png" alt="매일경제" /></li>
+                                <li><img src="./파이낸셜뉴스.png" alt="파이낸셜뉴스" /></li>
+                                <li><img src="./한국경제TV.png" alt="한국경제TV" /></li>
+                                <li><img src="./과학동아.png" alt="과학동아" /></li>
+                                <li><img src="./한국일보.png" alt="한국일보" /></li>
+                                <li><img src="./osen.png" alt="osen" /></li>
+                                <li><img src="./매일경제.png" alt="매일경제" /></li>
+                                <li><img src="./파이낸셜뉴스.png" alt="파이낸셜뉴스" /></li>
+                                <li><img src="./한국경제TV.png" alt="한국경제TV" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="inline-block">
+                        <div id="main-weather"></div>
+                        <div id="main-second-ad"></div>
+                    </div>
+                </div>
+        <div id="main-third-block">
+            <div id="main-category">
+                <h3>주제별 보기</h3>
+            </div>
+            <div id="main-shopping">
+                <h3>쇼핑</h3>
+            </div>
+        </div>
+        <div id="main-fourth-block">
+            <div id="main-event">
+                <h3>이벤트</h3>
+            </div>
+            <div id="main-third-ad"></div>
+        </div>
+            </div>
+        </div>
+        </main>
+        <footer> <!-- 공지사항, 회사소개 등을 footer를 사용한다. -->
+            <div>공지사항</div>
+            <div>Creators</div>
+            <div>회사소개</div>
+        </footer>
+    </body>
+
+</html>
