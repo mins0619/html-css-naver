@@ -1,0 +1,582 @@
+* { /* * <- 에스터리스크 라고 부르는데 모든 태그에 적용이라는 기능을 가짐*/
+    box-sizing: border-box; /* 모든 태그에 border-box 적용 */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0; /* 모든 글씨 크기들의 마진을 죽여버린다. */
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+.float-left {
+    float: left;
+}
+
+/* 앞에서 부터 순서 *if 돋움이 있으면 돋움
+     없다면 helvetica -> .. 등등/
+/* 선택자 (selector) */
+#fixed {
+    position: fixed; /* position 속성이 fixed인 경우 컨테이닝 블록은 뷰포트(화면이라고 생각하세요.)나 페이지 영역 */
+    /* fixed 위치를 개발자 도구로 옮겨 볼 수 있는데 어디에나 나둬도 변하지 않음 because 부모가 아니라 body이기 때문에*/
+    bottom: 50px;
+    right: 50px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+/* Cascading Style Sheet */
+/* 선택자(selector) */
+
+/* width 나 height 를 %로 두는 경우 부모가 아닐 수도 있다.  */
+.blind { /* .은 클래스 */
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+
+.relative {
+    position: relative;
+}
+
+.center-align { /* 여기서 div는 생략가능! ex) #header-center
+                       단 div만 가능하다. header#mins -> #mins(x) */
+    /* 이런 css가 여러번 사용된다면 .을 이용하여 클래스로 바꾸어 사용한다. ex).center-align(이름은 알아서 지어)*/
+    margin: 0 auto;
+    width: 1080px;
+}
+
+/*
+    만약 같은 내용의 css 디자인이 들어간다면!
+    div#header-center , div#mins{ ,를 찍고 옆에 적어주면 된다.
+    margin: 0 auto;
+    width: 1130px;
+    }
+*/
+header{
+    height: 160px;
+    margin-top: 8px;
+}
+
+#header-top{
+
+    float: right;
+    margin-top: 8px;
+
+}
+
+#header-top span {
+    color: #888;
+    letter-spacing: -1px;
+    font-size: 11px;
+    line-height: 22px;
+}
+
+#header-search{
+    clear: both; /* float를 쓰기 위해선 클리어를 써줘야 한다.*/
+    padding-top: 12px;
+}
+
+#header-search a {
+    text-decoration: none;
+}
+
+#header-search h1 { /* div 내에서 자식(바로안에 들어있는것)을 찾고 싶다면 mins > h1 방식을 사용*/
+    /* 자손 <- 그외 자식, 손자, 증손자 등등 */
+    /* a 태그와 h1 태그 교체이후 설명
+       header-search 바로 직졔 자식은 h1 태그였으나 a태그가 이를 감싸면서 h1태그는
+       자식이 아닌 자손이 되었음! 따라서 ">" 표시을 제거해야함 (자손과 자식의 차이)*/
+    width: 198px;
+    height: 48px;
+    display: inline-block; /* 오른쪽의 margin을 없앰 */
+    /*background-image: url(./sp_search.png);*/
+    /*background-position: -4px -10px;*/
+    /*background-repeat: no-repeat;*/  /* <- 반복되는것을 막기위함 div보다 넓으면 이미지가 반복되는 것을 막기 위함*/
+    /* 한방에 줄이는법 */
+    background: url(./sp_search.png) -4px -4px no-repeat;
+    vertical-align: middle;
+    position: relative;
+    top: -5px;
+}
+
+#header-search h1 span { /* 눈에 보이지 않는것에 처리 */
+    display: none;
+}
+
+#header-search h2 {
+    display: none;
+}
+
+#header-search fieldset {
+    margin-left: 18px;
+    /*padding-top: 12px;*/
+    /*padding-bottom: 12px;*/
+    /*padding-left: 10px;*/
+    /*padding-right: 0;*/
+    /* 위 오른쪽 아래 왼쪽*/
+    padding: 12px 0 12px 10px;
+    width: 521px;
+    height: 49px;
+    display: inline-block;
+    border: 2px solid #03cf5d; /* hex */
+    /* 마진, 보더, 패팅 들을 모두 합쳐서 너비로 맞추어 달라
+           content-box -> border-box */
+    vertical-align: middle;
+    /*
+       로고와 검색바 배치 이후에 서로의 height가 다르면 정렬면에서 문제가 발생함
+       따라서 vertical-align을 사용하여 정렬을 맞춤
+    */
+    position: relative;
+    /* relative <- 내 위치에서 위치조정*/
+}
+
+#header-search fieldset input {
+    border: none;
+    padding: 0;
+    outline: none;
+    vertical-align: top;
+    width: 405px;
+    height: 23px;
+}
+
+#header-search fieldset button {
+    width: 49px;
+    height: 49px;
+    border: none;
+    padding: 0;
+    background: #03cf5d;
+    position: absolute;/* 화면에 기반하여 위치한다. */
+    /* 컨테이닝 블록을 찾기 위에서 위로 계속 거슬러 올라가 HTML까지 올라간다.
+        SO. HTML이 기본 컨테이닝 블록이 된다. / EX) stactic... -> html */
+    right: -2px;
+    top: -2px;
+}
+
+#search-keyboard{
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_search.svg);
+    background-repeat: no-repeat;
+    background-position: -33px -60px; /* 위치잡는거, 그냥 값 줄예정*/
+    width: 19px;
+    height: 11px;
+    display: inline-block;
+    margin: 0 -1px; /* 위 오른쪽 아래쪽 왼쪽 -> 상하, 좌우가 같으면 합쳐도 됨*/
+    vertical-align: middle; /* inline, inline-block 옆에 붙어있는 애들이 정렬되도록 만들어 줌 */
+}
+#search-history{
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_search.svg);
+    background-repeat: no-repeat;
+    background-position: -87px -60px;
+    width: 9px;
+    height: 4px;
+    display: inline-block;
+    margin: 0 8px;
+    vertical-align: middle;
+}
+
+/*#header-search fieldset button .search-image*/
+/* 너무 길어지면 id로 변경 */
+
+#search-image {
+    background-image: url(./sp_search.png);
+    background-position: -3px -60px;
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    margin: 14px;
+}
+nav{
+
+    height: 46px;
+    border-top: 1px solid #f1f3f6;
+    border-bottom: 1px solid #d1d8e4;
+
+
+}
+
+nav ul {
+    display: inline-block;
+    margin: 0px;
+    padding:16px 0 0 4px;/* 화면에서 보면 알겠지만 옆으로 마진과 패딩을 쓰고 있기에 이를 없애줌 */
+    list-style: none; /* 옆에 리스트 쩜을 없애줌 */
+}
+
+#nav-menu li { /* nav li로 두면 실시간 검색어에서 가로로 정렬되기에 id값을 준다.*/
+    display: inline-block;
+}
+
+#nav-menu li:first-child span:first-child {/* 첫번째 자식에 다시 첫번째 자식을 선택 */
+    width: 25px;
+    background-position: 0 -285px;
+    margin-left: 0; /* 케스케이딩( 덮어 씌우는 것 ) ex. 0으로 고정을 하였으나 뒤에서 14로 덮어 씌울 수 있다.*/
+}
+
+#nav-menu li span:first-child {
+    height: 16px;
+    display: inline-block;
+    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    /* css 우선순위 -> 뒤에 있는 css가 더 우선순위가 높다.*/
+    /* !important > inline style attribute > id > 다른 attribute > tag element 순으로 우선순위가 높다.*/
+}
+
+#nav-menu li:nth-child(2) span:first-child {
+    width: 27px;
+    background-position: -279px -52px;
+}
+
+#nav-menu li:nth-child(3) span:first-child {
+    width: 40px;
+    background-position: -100px -182px;
+}
+
+#nav-menu li:nth-child(4) span:first-child {
+    width: 40px;
+    background-position: -101px -156px;
+}
+
+#nav-menu li:nth-child(5) span:first-child {
+    width: 26px;
+    background-position: -279px -156px;
+}
+
+#nav-menu li:nth-child(6) span:first-child {
+    width: 25px;
+    background-position: -70px -285px;
+}
+
+#nav-menu li:nth-child(7) span:first-child {
+    width: 35px;
+    background-position: -125px -130px;
+}
+
+#nav-menu li:nth-child(8) span:first-child {
+    width: 26px;
+    background-position: -279px -208px;
+}
+
+#nav-menu li:nth-child(9) span:first-child {
+    width: 26px;
+    background-position: -128px -104px;
+}
+
+#nav-menu li:nth-child(10) span:first-child {
+    width: 26px;
+    background-position: -36px -259px;
+}
+
+#nav-menu li:nth-child(11) span:first-child {
+    width: 39px;
+    background-position: -151px -156px;
+}
+
+#nav-menu li:nth-child(12) span:first-child {
+    width: 26px;
+    background-position: -279px -130px;
+}
+
+#nav-menu li:nth-child(13) span:first-child {
+    width: 26px;
+    background-position: -234px -233px;
+}
+
+#nav-menu li:nth-child(14) span:first-child {
+    width: 26px;
+    background-position: -72px -259px;
+}
+
+#nav-menu li:nth-child(15) span:first-child {
+    width: 13px;
+    background-position: -140px -78px;
+}
+
+#nav-menu li:nth-child(16) span:first-child {
+    width: 26px;
+    background-position: -279px 0;
+}
+
+#nav-menu li.more:first-child span:first-child {
+    width: 55px;
+    background-position: 0 -104px;
+}
+
+
+.nav-divider{
+    display: inline-block;
+    margin: 18px 16px 0;
+    width: 1px;
+    height: 14px;
+    background: #ebeef3;
+}
+
+#search-ranking {
+    position: absolute;
+    top: 14px;
+    right: 0px;
+    width: 198px; /* z-index 주는거 실검 보여주는거 */
+    height: 20px;
+}
+
+#search-ranking:hover ul{ /* 의사 클래스 은메달, 우선순위가 높음*/
+                        /* 마우스를 올렸을때 속성을 바꿔줌*/
+    display: inline-block;
+}
+
+#search-ranking ul{
+    display: none; /* 평소에는 안보이게 none 그러나 스터디 할때는 인라인 블록으로 알려주자 */
+    list-style: none;
+    padding: 17px;
+    margin: 0;
+    width: 332px; /* 실검 넓이*/
+    height: 334px; /* 실검 높이 */
+    border: 1px solid #aaa;
+    background: white;
+    position: absolute; /* 실검 위치잡기 */
+    top: -15px; /* 실검 위치잡기 */
+    right: 0px; /* 실검 위치잡기 */
+}
+
+#rank-number {
+    margin-top: -9px;
+    color: #00ab33;
+    font-size: 16px;
+}
+
+#rank-title {
+    margin-top: -9px;
+    color: #00ab33;
+    font-size: 16px;
+}
+
+main {
+    background-color: #f2f4f7;
+    display: inline-block; /* 마진상쇄 해결법*/
+    width: 100%;
+}
+
+/* 8px이 이 사이 너빈거 같은데 이 8px를 어디에 줘야 할까? 누구의 픽셀로 줘야 적용일까..
+   -> 규칙을 하나 정할것! 나는 오른쪽 마진으로 하겠다 등등 */
+/* 저는 오른쪽과 아랫쪽에 8px줄 예정입니다.*/
+
+#main-center{
+    padding: 8px 10px; /* 원래는 패딩 8px 10px 0 이었는데 수정됨 */
+    /* 이런 식으로 패딩을 주게 되었을때 첫 라인의 길이가
+    초과하면 끝에 있었던 것이 아랫줄로 밀린다. 한마디로 사이즈가 넘친 것 */
+    width: 1100px; /* 그래서 너비를 직접 지정하여 해결해줌 */
+}
+
+#main-first-block{
+    display: inline-block;
+    width: 100%;
+    vertical-align: top; /* 세로간의 마진은 이거 */
+
+}
+
+
+
+#main-ad{
+    /*display: inline-block; float를 쓰면 인라인 블록 무필요*/
+    float: left;
+    width: 740px;
+    height: 120px;
+    background: url("https://ssl.pstatic.net/tveta/libs/1327/1327931/a04fb8abeec1c42e9fa1_20210226164805893.png");
+    margin-bottom: 8px;
+    margin-right: 8px;
+    background-size: cover;
+}
+
+
+
+
+
+#main-login{
+   float: left;
+    width: 332px;
+    height: 120px;
+    vertical-align: top; /* 높이가 안맞을때 위로 끌어 올리는 법*/
+    background: white;
+    margin-bottom: 8px;
+
+}
+
+#main-login .login-wrapper{
+    padding: 15px 25px;
+}
+
+#main-login .login-wrapper a{
+    display: block;
+    margin-top: 12px;
+}
+
+#main-login .login-text {
+    color: #888;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+#main-login .login-image{
+    background: url(./sp_login.png) 0 -47px no-repeat;
+    display: inline-block;
+    width: 280px;
+    height: 37px;
+
+}
+
+/* 두번째 구역*/
+
+#main-second-block .float-left:first-child{
+    /* 가로로 자르다 못자르면 세로로 잘라야함 */
+    width: 740px;
+    margin-right: 8px; /* ● 자신의 마진을 부모로 */
+}
+
+#main-second-block .float-left:last-child{
+    /* 가로로 자르다 못자르면 세로로 잘라야함 */
+    width: 332px;
+    vertical-align: top;
+
+}
+
+#main-ytn{
+    display: inline-block;
+    width: 740px;
+    height: 46px;
+    background: white;
+    margin-bottom: 8px;
+    /* margin-right: 8px; ● 자신의 마진을 부모로 */
+}
+
+#main-ytn h3,
+#main-ytn ol { /* ,로 할때는 $main-ytn 빼지 말자, 안햇갈리는법 줄바꿈 ㄱㄱ*/
+    display: inline-block; /* 뉴스의 목록을 가로로 정리 */
+}
+
+/* 자식의 마진을 바깥으로 꺼내기 */
+#main-second-block{
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 8px;
+}
+
+
+#main-newsstand{
+    display: inline-block;
+    width: 740px;
+    height: 246px;
+    background: white;
+    vertical-align: top;
+
+}
+
+#main-newsstand h3 { /* newsstand 에서 h3가 높이 45를 가져감 */
+    height: 45px;
+    border-bottom: 1px solid #ebeef3;
+}
+
+#main-newsstand ul { /* 개발자 도구를 올려보고 마진 패팅 리스트 스타일이 보여서 지운다.*/
+    display: inline-block; /* 다 만들고 나서 뉴스 목록쪽을 보면 옆이 살짝 비는데 이를 해결하기 위함 */
+    margin: 0;
+    padding: 0;
+    list-style: none; /* 옆에 점이 사라진다. */
+}
+
+#main-newsstand li {
+    float: left; /* 리스트들을 옆으로 정렬 */
+    width: calc(100% / 6); /* 보통 6등분을 하고싶은데 계산기를 굴릴순 없으니 이런 식을 쓴다 .*/
+    height: 67px;
+    /* 경계선은 살펴보면 바보도 오른쪽이랑 밑만 넣어주면 되는게 보인다.*/
+    border-right: 1px solid #ebeef3;
+    border-bottom: 1px solid #ebeef3;
+    text-align: center; /* 내부 컨텐츠가 가운데 정렬 자식이 -> 부모에ㅅ게 명령*/
+
+}
+
+
+/* 세로 가운데 정렬 */
+#main-newsstand li img {
+    position: relative;
+    top: 50%; /* 부모의 길이로 부터 50% */
+    transform: translateY(-50%); /* 얘를 안해주면 위치가 이상해진다. */
+    /* 부모는 가로 자식은 세로를 맡음 */
+}
+
+
+
+#main-weather {
+    display: inline-block;
+    width: 332px;
+    height: 120px;
+    margin-bottom: 8px;
+    background: white;
+    vertical-align: top;
+}
+
+#main-second-ad {
+    display: inline-block;
+    width: 332px;
+    height: 150px;
+    background: #555;
+    vertical-align: top;
+}
+
+/* 세번째 구역 */
+
+#main-category{
+    float: left; /* 믿으로 붙어버리는 등신같은 경우 해결할때 씁니다. 이거 해주고
+                     부모를 인식하게 해주기 위해서 display: inline-block, width 100% 해줘야함 ㅋㅋ*/
+    width: 740px;
+    height:  882px;
+    background: white;
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+#main-shopping {
+    float: left;
+    width: 330px;
+    height: 882px;
+    background: white;
+    margin-bottom: 8px;
+}
+
+#main-shopping iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#main-third-block,
+#main-fourth-block {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+#main-event {
+    float: left;
+    width: 740px;
+    height: 130px;
+    background: white;
+    vertical-align: top;
+    margin-right: 8px;
+}
+
+#main-third-ad {
+    float: left;
+    width: 330px;
+    height: 130px;
+    background: #555;
+}

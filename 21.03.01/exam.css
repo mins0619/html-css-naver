@@ -1,0 +1,107 @@
+body {
+    background: beige;
+
+}
+
+html, body{
+    margin: 0;
+    padding: 0; /* 처음 브라우저를 주면 자동으로 패딩과 마진 값이 나오는데 이를 0으로 설정하고 코딩을 진행하자 */
+}
+
+section {
+    display: block;
+    width: 400px;
+    height: 160px;
+    background: lightgray;
+}
+
+p {
+    width: 50%;   /* == 400px * .5 = 200px */
+    height: 25%;  /* == 160px * .25 = 40px */
+    margin: 5%;   /* == 400px * .05 = 20px */
+    padding: 5%;  /* == 400px * .05 = 20px */
+    background: cyan;
+}
+
+/* 항상 부모가 아닐 수 있다. body안에 section안에 p가 들어있는데 이 p의 컨테이닝 블록은 section 일까요?
+    정답 : ㅇㅇ 왜냐하면 이 p는 position이 static이기 때문에 */
+
+/* SO -> width 50%를 할경우 section 400px의 50%가 되서 200px이 된다.*/
+
+body {
+    background: beige;
+}
+
+section {
+    display: inline;
+    background: lightgray;
+}
+
+p {
+    width: 50%;     /* == body 너비의 절반 */
+    height: 200px;  /* 참고: 백분율 값이었으면 0 */
+    background: cyan;
+}
+
+/* 똑같은 경우 그렇다면 이번에도 p의 컨테이닝 블록은 section 일까요?
+    정답 : x 왜냐하면 section 의 display 가 inline 이기 때문에 (display가 inline인 경우 컨테이닝 블럭이 될 수 없기 때문) */
+
+/* So -> 이 p의 컨테이닝 블록은 section를 건너뛰고 body까지 올라가서 body의 절반이 된다.*/
+
+
+/* 팁 : 문서를 옆에 두고 공부하되 2번을 보고 공부하다가 4번때문에 혼란이 올 수도 있으니 꼭 꼼꼼히 읽어볼 것*/
+
+
+
+
+/*2/18*/
+
+/* 컨테이닝 블록이 자식 입장에서 부모가 누군가인지 찾는것이라면 블록서식 문맥은 자식이 누구까지인지 포함하는 것을 찾는것
+    근데 이 block이 display-block과는 다름 so 햇갈리지마
+    블록서식문맥은 display inline block일때 생김
+
+    인라인블록과 float과 overflow은 visible이 아니다.
+    position은 앱솔루트거나 픽스드 이다.
+
+    네이버를 시작페이지로를 오른쪽이로 옮기는법
+    text-align right
+    //
+    position absolute;
+    right 0
+    top 0
+    //
+    float rigth; <- 공간만큼 땡겨서 올라감 /공중으로 뜨는거고 / 빈만큼 밑에있는 header 서치가 그 사이로 쏙 들어간다./ 단 겹치지 않음
+
+*/
+
+/*
+
+제가 css에서 버벅이는 이유는 다른 이유도 많겠지만
+저는 이제 웹쪽으로 길을 잡아서 react 라는 친구를 공부하는데
+사실 react는 css를 거의 사용하질 않아서 html하고 js만 알아도 어느정도
+코딩이 되거든요.. 물론 css 틀을 쓰긴하는데 저른 스타일링을 거의 없어서
+지금 되게 햇갈리는 중입니다..ㅠㅠ
+
+*/
+
+/* 마진 컬랩싱이 나온 이유
+    -> <main> <div center-align <- main안에 센터 얼라인을 넣었더니 갑자기 빈공간이 나타나는 것을 볼 수 있음> </div> </main>
+    nav밑에 바로 main을 넣었는데 왜 nav랑 main이랑 공간이 비어있지? 라는 느낌을 받을 수 있음
+    so -> h3를 보면 감이 온다 h3의 마진이 이 빈공간을 차지 하고 있음
+    부모가 자식의 마진을 감싸지 않는 거라고 생각할 수 있는데 이것은 div가 블렉 포멧 컨텍싱으로 정의 되지 않았기에
+    그래서 부모가 자식을 다 커버하지 못함 so 자식이 부모를 튀어나감 and main또한 블포컨이 아님
+    so 이걸 ㅂ마진 상쇄라고 이야기함
+
+    3가지 케이스가 있다.
+    1. 시블링(siblings) 형제간 마진
+    2. 부모에서 첫번째 자식이랑 마지막 자식 간의 마진 컬렙
+    3. 빈블록의 마진 컬렉션
+ */
+
+    /* nav는 전부 inline-block */
+
+    /* inline-block이 겹치게 되면 이상한 마진이 벌어지게 되는데
+        이를 해결하기 위해서 가로는 float을 사용하고 새로는 vertical-align top을 사용한다.*/
+
+
+    /* 버튼을 만들때는 a태그로 하지마라 , 단 페이지를 이동할 때는 a태그로 버튼을 만들어라 */

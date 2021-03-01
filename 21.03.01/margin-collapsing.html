@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <!--마진 컬렙싱을 설명하기 위한 코드-->
+    <div style="height: 20px;margin-bottom: 20px; background: yellow"></div>  <!--아래로 20px 만큼 공간을 띄움--> <!--형제-->
+    <div style="height: 20px;margin-top: 20px; background: green" ></div>  <!--위로 20px 만큼 공간을 띄운다--> <!--형제 -->
+     <!--상하 마진만 겹친다. 연습용(네이버 확인)  △ 형제의 마진 컬렙싱 예 (겹치는 애 중에 더 큰애만 남고 작은 애는 큰애한테 쏙 들어감 )
+     적용 설명: 구글 계발자 모드로 margin-bottom을 30으로 만들면 top이 bottom 안으로 쏙 들어가는 것을 볼 수 있다.-->
+
+    <div style="/*height: 20px;*/margin-bottom: 20px; background: yellow"></div>  <!--빈태그-->
+    <div style="/*height: 20px;*/margin-top: 20px; background: green" ></div>  <!--빈태그-->
+     <!--구글 개발자 모드로 보여주며 빈태그의 경우는 height가 없어야 한다. 그랬을때 마진만 존재하는 경우 이처럼 마진 상쇄 현상이 일어난다.
+        다른 점은 서로 마진을 밀어낸다. 서로의 영역을 침범하는 것-->
+
+    <div style="height: 20px;margin-bottom: 20px; background: yellow"> <!-- 자식관계 -->
+    <div style="height: 20px;margin-top: 20px; background: green" ></div> <!-- 자식관계 -->
+    <!-- 보게되면 부모태그가 제일 위에 위치해야 하는데 보이지 않음 왜냐하면 자식태그가 부모태그 밖으로 튀어나가 있는것을 볼 수 있다. -->
+    <!-- 부모가 있고 첫번째 자식이 있는데 마진 탑이 있거나 마지막 자식이 마진 바텀이 있는 경우 부모를 뚫어버리며 침범한다. 빠져 나간다는 소리 -->
+
+
+        <!-- 해결책 -->
+            <!-- 블록 포멧 컨텍스트로 이들을 만들어 준다.
+             예를 들어 overflow를 auto로 하게되면 부모영역 생기고 자식영역이 생기는 걸 볼 수 있다. 다만 스코롤이 생겨서 이쁘지 않음   -->
+            <!-- hidden을 사용한다. 부모영역은 생기는데 자식이 부모 영역을 벗어나서 안보이게 됨 -->
+            <!-- float: left; , width 100% <- 부모도 보이고 자식도 보여서 잘 보임 -->
+            <!-- position: 앱솔루트를 사용한다. -->
+            <!-- 이 모두는 형제 태그 일때도 적용된다. 단 모든 사례가 다 해결이 안됨-->
+            <!-- so -> display inline-block을 사용하고 width 100%를 사용하면 모든 문제가 해결된다. -->
+            <!-- 제일 해결하기 쉬운 방법입니다. 쿠쿠루 삥뽕 -->
+</body>
+</html>
