@@ -6,6 +6,7 @@
         <!--./는 현제폴더를 의미한다.-->
         <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
         <link rel="stylesheet" href="./naver.css">
+        <link rel="stylesheet" href="./webfont.css">
     </head>
     <body>
 
@@ -192,7 +193,41 @@
                 </div>
         <div id="main-third-block">
             <div id="main-category">
-                <h3>주제별 보기</h3>
+                <h3 class="blind">주제별 보기</h3>
+                <div> <!-- 위에 메뉴 구역 가로  -->
+                    <button id="subject-all" >
+                        <span class="blind">전체주제열기</span>
+                        <span></span> <!-- 이미지용 스펜 -->
+                    </button>
+                    <div id="subject-list">
+                        <div class="opacity left"></div>
+                        <ul>
+                            <li>리빙</li>
+                            <li>푸드</li>
+                            <li>스포츠</li>
+                            <li>자동차</li>
+                            <li>패션뷰티</li>
+                            <li>부모i</li>
+                            <li class="highlight">건강</li>
+                            <li>웹툰</li>
+                            <li>게임</li>
+                            <li>티비</li>
+                            <li>TV연예</li>
+                            <li>뮤직</li>
+                            <li>영화</li>
+                            <li>책문화</li>
+                        </ul>
+                        <div class="opacity right"></div>
+                    </div>
+                    <button id="subject-pre">
+                        <span class="blind">이전주제</span>
+                        <span></span>
+                    </button>
+                    <button id="subject-next">
+                        <span class="blind">다음주제</span>
+                        <span></span>
+                    </button> <!-- 이름을 달자 / 스크린 뷰어에서 장애인이 할 수 있게 -->
+                </div>
             </div>
             <div id="main-shopping">
                 <iframe

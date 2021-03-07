@@ -451,6 +451,14 @@ main {
 
 }
 
+#main-ytn h3, #main-newsstand h3 {
+    font-size: 14px;
+    font-family: NanumSquare,Dotum,"돋움",Helvetica,AppleSDGothicNeo,sans-serif;
+    padding-top: 15px;
+    padding-left: 15px;
+    vertical-align: top;
+}
+
 #main-ytn{
     display: inline-block;
     width: 740px;
@@ -580,3 +588,115 @@ main {
     height: 130px;
     background: #555;
 }
+
+#main-category-top {
+    display: inline-block;
+    width: 100%;
+}
+
+
+#subject-list, #subject-all, #subject-pre, #subject-next {
+    float: left; /* 고려 -> 버튼이 인라인 블럭이라서 좌우로 붙었을 때  이상현상이 생기니까
+    염두한다 플로트 ㅎㅎㅎㅎ* */
+    height: 43px; /* 버튼의 높이 */
+}
+
+#subject-list { /* 리스트들 */
+    width: 603px;
+    position: relative;
+}
+
+#subject-list ul {
+    list-style: none;
+    width: 700px; /* 너비가 있어야지 살짝 가려져서 보임 */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* 넘치는 목록을 숨기고 */
+    height: 43px; /* 접히는게 자연스러워짐 , 밑에 공각이 부족해서 이어짐*/
+    white-space: nowrap; /* 삐져나온 친구를 옆으로 넘겨줌*/
+}
+
+#subject-list li {
+    float: left;
+    margin-right: 10px;
+    padding: 14px 7px 0;
+    font-size: 14px;
+    font-family: NanumSquare,Dotum,"돋움",Helvetica,AppleSDGothicNeo,sans-serif;
+
+}
+
+
+.opacity {
+    opacity: 0.7;
+    background: white;
+}
+.opacity.left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 45px;
+    width: 15px;
+}
+.opacity.right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 45px;
+    width: 15px;
+}
+
+
+#subject-list li.highlight {
+    border-bottom: 3px solid #00c73c;
+    color: #00b336;
+    font-weight: 700; /* 강조하는 굵기 등등 */
+    height: 43px;
+}
+
+
+#subject-all, #subject-pre, #subject-next  {
+    position: relative; /*  컨테이닝 블록으로 만들기 */
+    width: 45px; /* 버튼의 넓이*/
+    border: none;
+    border-left: 1px solid #ebeef3;
+    background: white;
+}
+
+
+#subject-all span:last-child {
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    width: 20px;
+    height: 14px;
+    background-image: url(./sp_themecast.png);
+    background-repeat: no-repeat;
+    background-position: -218px -257px;
+}
+
+#subject-pre span:last-child {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    width: 8px;
+    height: 16px;
+    background-image: url(./sp_themecast.png);
+    background-repeat: no-repeat;
+    background-position: -320px 0;
+
+}
+
+#subject-next span:last-child {
+    position: absolute;
+    top: 15px;
+    left: 16px;
+    width: 8px;
+    height: 16px;
+    background-image: url(./sp_themecast.png);
+    background-repeat: no-repeat;
+    background-position: -320px -52px;
+}
+
+/* 마지막으로 우리가 만든 css가 680줄 정도 되는데 ㅈㄴ 많자늠 */
+/* 그래서 조각단위로 여러게 짤라서 링크를 해주면 된다.*/
+/* 또한 공통으로 쓰이는 것들은 헤더에 스타일 태그를 만들고 넣어버리자 ㅎ*/
